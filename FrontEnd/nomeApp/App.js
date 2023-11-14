@@ -1,12 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useState, useContext} from 'react';
+import { UtilsContext } from './context';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator} from '@react-navigation/stack';
+import AdmPage from  './views/adm';
+import UserPage from './views/user';
+import HomePage from './views/home';
 
 export default function App() {
+
+  // const [utils, setUtils] = useState({users:[]})
+  const Stack = createStackNavigator()
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name = "HomePage" component={AdmPage}/>
+        <Stack.Screen name = "AdmPage" component={AdmPage}/>
+        <Stack.Screen name = "UserPage" component={UserPage}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
