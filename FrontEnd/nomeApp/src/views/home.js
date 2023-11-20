@@ -1,12 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TouchableOpacity, TouchableWithoutFeedback, Image, FlatList, Switch } from 'react-native';
-import { TextInput } from 'react-native-web';
+import { StyleSheet, Text, View} from 'react-native';
 import { useState, useContext } from 'react';
 
 export default function HomePage(props) {
 
   return (
-   <Text>a</Text>
+    <View>
+
+      <Text>HOME</Text>
+
+    </View>
   );
 }
 
