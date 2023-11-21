@@ -40,9 +40,29 @@ export default function HomePage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#DCDCDC',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#5D576B',
   },
+
+  containerHeader: {
+    marginTop: '14%',
+    marginBottom: '8%',
+    paddingStart: '5%',
+  },
+
+  message:{
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#FFF",
+  },
+
+  containerForm:{
+    backgroundColor: "#FFF",
+    flex: 1,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius:25,
+    paddingStart: "5%",
+    paddingEnd: "5%",
+    
+  }
 
 });
