@@ -1,68 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import * as Animatable from 'react-native-animatable'
+import { StatusBar } from 'react-native';
+import { NavigationContainer, TabActions } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator} from '@react-navigation/stack';
+import AdmPage from  './src/views/admPage';
+import UserPage from './src/views/userPage';
+import HomePage from './src/views/home';
+import Welcome from './src/views/welcome';
+import loginUser from './src/views/Login/loginuser';
 
-export default function HomePage() {
+import Financeiro from './src/views/AdmAssets/Financeiro';
+import CadNovo from './src/views/AdmAssets/NovoAp';
+import Painel from './src/views/AdmAssets/Painel';
+import Blocos from './src/views/AdmAssets/Blocos';
+import Vagas from './src/views/AdmAssets/Vagas';
+
+export default function App() {
+
+  const Tab = createBottomTabNavigator();
+  const Stack = createStackNavigator();
 
   return (
-    <View style={styles.container}>
-      <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-        <Text style={styles.message}>Bem-vindo(a), Síndico</Text>
-      </Animatable.View>
-
-      <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Email</Text>
-        <TextInput
-          placeholder='Digite seu Email @condomínio.com'
-          style={styles.input}
-        />
-
-        <Text style={styles.title}>Senha</Text>
-        <TextInput
-          placeholder='Digite sua senha'
-          style={styles.input}
-        />
-
-        <TouchableOpacity style={styles.btnAdm}>
-          <Text style={styles.btnText}>Acessar</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.btnUser}>
-          <Text style={styles.userText}>Sou morador!</Text>
-        </TouchableOpacity>
-
-      </Animatable.View>
-
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name = "Welcome" component={Welcome} options={{headerShown: false}}/>
+        <Stack.Screen name = "HomePage" component={HomePage} options={{headerShown: false}}/>
+        <Stack.Screen name = "LoginUser" component={loginUser} options={{headerShown: false}}/>
+        <Stack.Screen name = "AdmPage" component={AdmPage} options={{headerShown: false}}/>
+        <Stack.Screen name = "UserPage" component={UserPage} options={{headerShown: false}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#5D576B',
-  },
-
-  containerHeader: {
-    marginTop: '14%',
-    marginBottom: '8%',
-    paddingStart: '5%',
-  },
-
-  message:{
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#FFF",
-  },
-
-  containerForm:{
-    backgroundColor: "#FFF",
-    flex: 1,
-    borderTopLeftRadius: 25,
-    borderTopRightRadius:25,
-    paddingStart: "5%",
-    paddingEnd: "5%",
-    
-  }
-
-});

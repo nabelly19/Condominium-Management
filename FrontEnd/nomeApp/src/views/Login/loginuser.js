@@ -2,16 +2,22 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 
-export default function HomePage(props) {
+export default function loginUser() {
 
   return (
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-        <Text style={styles.message}>Bem-vindo(a), Síndico</Text>
+        <Text style={styles.message}>Bem-vindo(a), Morador</Text>
       </Animatable.View>
 
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Email</Text>
+        <Text style={styles.title}>Nome de Usuário</Text>
+        <TextInput
+          placeholder='Digite seu nome de usuário'
+          style={styles.input}
+        />
+
+<Text style={styles.title}>Email</Text>
         <TextInput
           placeholder='Digite seu Email @condomínio.com'
           style={styles.input}
@@ -23,12 +29,8 @@ export default function HomePage(props) {
           style={styles.input}
         />
 
-        <TouchableOpacity style={styles.btnAdm}>
-          <Text style={styles.btnText}>Acessar</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity style={styles.btnUser}>
-          <Text style={styles.userText}>Não é síndico? Acesse o Portal do Morador</Text>
+          <Text style={styles.btnText}>Acessar</Text>
         </TouchableOpacity>
 
       </Animatable.View>
@@ -40,7 +42,7 @@ export default function HomePage(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#5D576B',
+    backgroundColor: '#343B89',
   },
 
   containerHeader: {
@@ -76,8 +78,8 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
 
-  btnAdm: {
-    backgroundColor: '#343B89',
+  btnUser: {
+    backgroundColor: '#5D576B',
     width: '100%',
     borderRadius: 4,
     paddingVertical: 8,
@@ -99,11 +101,6 @@ const styles = StyleSheet.create({
     color: '#a1a1a1',
     fontWeight: 'bold'
   },
-
-  btnUser:{
-    marginTop: 14,
-  }
-
 
 
 });

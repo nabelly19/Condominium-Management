@@ -3,16 +3,15 @@ import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 
-export default function Welcome() {
-    // const Navigation = useNavigation();
+export default function Welcome(props) {
 
   return (
     <View style={styles.container}>
       <View style={styles.containerLogo}>
         <Animatable.Image
           animation="flipInY"
-          source={require('./src/img/logotipo.png')}
-          style={{width: '100%'}}
+          source={require('../img/logotipo.png')}
+          style={{width: '300px',height:"300px"}}
           resizeMode="contain"
         />
       </View>
@@ -25,7 +24,7 @@ export default function Welcome() {
         <Text style={styles.text}>Faça o login como Morador ou Síndico</Text>
 
         <TouchableOpacity style={styles.btn}
-          // onPress= {() => Navigation.navigate('HomePage')}
+          onPress= {() => props.Navigation.navigate('HomePage')}
           >
           <Text style={styles.btnText}>Acessar</Text>
         </TouchableOpacity>
