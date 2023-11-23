@@ -32,8 +32,5 @@ public class PessoaModel {
     private String email;
     @Getter
     @Setter
-    private int apartamento;
-    @Getter
-    @Setter
-    private int bloco;
+    private ApartamentoModel apartamento;
 }
