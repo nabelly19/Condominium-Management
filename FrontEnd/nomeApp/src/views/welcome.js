@@ -10,7 +10,7 @@ export default function Welcome(props) {
       <View style={styles.containerLogo}>
         <Animatable.Image
           animation="flipInY"
-          source={require('../img/logotipo.png')}
+          source={require('../../src/img/logotipo.png')}
           style={{width: '300px',height:"300px"}}
           resizeMode="contain"
         />
