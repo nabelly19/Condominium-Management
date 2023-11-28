@@ -1,132 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
-import { Dimensions } from 'react-native';
+import { StatusBar } from 'react-native';
+import { NavigationContainer, TabActions } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator} from '@react-navigation/stack';
+import Welcome from './src/views/welcome';
+import HomePage from './src/views/home';
+import AdmPage from  './src/views/admPage';
+import loginUser from './src/views/Login/loginuser';
+import UserPage from './src/views/userPage';
+import CadastroHome from './src/views/Cadastro/CadastroHome';
+import CadNovoAdm from './src/views/Cadastro/cadNovoAdm';
+
+import { UtilsContext } from './context';
+
+import Financeiro from './src/views/AdmAssets/Financeiro';
+import CadNovo from './src/views/AdmAssets/NovoAp';
+import Painel from './src/views/AdmAssets/Painel';
+import Blocos from './src/views/AdmAssets/Blocos';
+import Vagas from './src/views/AdmAssets/Vagas';
 
 export default function App() {
-  
-  
 
+  const Tab = createBottomTabNavigator();
+  const Stack = createStackNavigator();
 
   return (
-    <>
-    <View style={styles.container}>
-    <View>
-        <Text style={styles.title}>BEM VINDO, MORADOR</Text>
-      </View>
-        <View 
-        style={styles.containerForm}>
-
-      <View style={styles.btnContainer}>
-          <TouchableOpacity
-            style={styles.button}
-          >
-            <Text  style={styles.buttonText}>AGENDAR</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.button}
-          >
-            <Text  style={styles.buttonText}>SUAS VAGAS</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.button}
-          >
-            <Text  style={styles.buttonText}>PAGAMENTOS</Text>
-          </TouchableOpacity>
-        </View>
-        <Image
-          source={require('./src/img/logotipo.png')}
-          style={styles.img}
-          resizeMode="contain"
-        />
-    </View>
-    </View>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name = "Welcome" component={Welcome} options={{headerShown: false}}/>
+        <Stack.Screen name = "HomePage" component={HomePage} options={{headerShown: false}}/>
+        <Stack.Screen name = "LoginUser" component={loginUser} options={{headerShown: false}}/>
+        <Stack.Screen name = "AdmPage" component={AdmPage} options={{headerShown: false}}/>
+        <Stack.Screen name = "UserPage" component={UserPage} options={{headerShown: false}}/>
+        <Stack.Screen name = "CadastroHome" component={CadastroHome} options={{headerShown: false}}/>
+        <Stack.Screen name = "CadastrarAdministrador" component={CadNovoAdm} options={{headerShown: false}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
-let screenWidth = Dimensions.get('window').width;
-const styles = StyleSheet.create({
-  
-  container: {
-    flex: 1,
-    backgroundColor: '#343B89',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  title: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontSize: "25px",
-    fontWeight: '500',
-    marginBottom: "50px",
-    marginTop: "50px",
-    color: "#FFF"
-},
-
-  containerForm: {
-    flex:1,
-    backgroundColor: '#FFF',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    paddingStart: '5%',
-    paddingEnd: '5%',
-  },
-
-  img:{
-    marginLeft:'20%',
-    width: '200px',
-    height:"200px"
-  },
-
-  row: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-    marginBottom: '20%',
-  },
-
-  btnNavegation: {
-    backgroundColor: '#4A90E2', 
-    justifyContent:'center',
-    alignItems: 'center',
-    padding: 10,
-    width: screenWidth * 0.25, 
-    height: 50,
-    borderRadius: 10,
-    marginLeft: '5%'
-  },
-
-  btnNavText: {
-    padding: '2%',
-    color: '#FFF',
-    fontWeight: 'bold',
-    display: 'flex',
-    justifyContent: 'center'
-  },
-
-  btnContainer: {
-    marginTop: '30%'
-  },
-
-  button: {
-    backgroundColor: "#5D576B",
-    display: 'flex',
-    justifyContent:'center',
-    alignItems: 'center',
-    marginBottom: '10%',
-    width: screenWidth * 0.90,
-    height: '50px',
-    borderRadius: '10px',
-  },
-
-  buttonText: {
-    padding: '2%',
-    color: "#FFF",
-    fontWeight: 'bold',
-    display: 'flex',
-    justifyContent: 'center'
-  }
-});
+ }

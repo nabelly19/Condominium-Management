@@ -23,11 +23,15 @@ export default function HomePage(props) {
           style={styles.input}
         />
 
-        <TouchableOpacity style={styles.btnAdm}>
+        <TouchableOpacity style={styles.btnAdm}
+          onPress= {() => props.navigation.navigate('AdmPage')}
+        >
           <Text style={styles.btnText}>Acessar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btnUser}>
+        <TouchableOpacity style={styles.btnUser}
+           onPress= {() => props.navigation.navigate('LoginUser')}
+        >
           <Text style={styles.userText}>Não é síndico? Acesse o Portal do Morador</Text>
         </TouchableOpacity>
 

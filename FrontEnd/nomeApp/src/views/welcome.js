@@ -24,7 +24,7 @@ export default function Welcome(props) {
         <Text style={styles.text}>Faça o login como Morador ou Síndico</Text>
 
         <TouchableOpacity style={styles.btn}
-          onPress= {() => props.Navigation.navigate('HomePage')}
+          onPress= {() => props.navigation.navigate('HomePage')}
           >
           <Text style={styles.btnText}>Acessar</Text>
         </TouchableOpacity>

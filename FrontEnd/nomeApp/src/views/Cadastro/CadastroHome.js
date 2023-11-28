@@ -2,37 +2,19 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import { Dimensions } from 'react-native';
 
-export default function AdmPage(props) {
+export default function CadastroHome(props) {
+  
   return (
     <>
     <View style={styles.container}>
     <View>
-        <Text style={styles.title}>BEM VINDO, ADMINISTRADOR</Text>
+    <Image
+          source={require('../../img/logotipo.png')}
+          style={styles.img}
+          resizeMode="contain"
+        />
+        <Text style={styles.title}>NOVO CADASTRO</Text>
       </View>
-        <View style={styles.row}>
-          <TouchableOpacity
-              style={styles.btnNavegation}
-            >
-              <Text  style={styles.btnNavText}>FINANCEIRO</Text>
-            </TouchableOpacity>
-
-          <TouchableOpacity
-              style={styles.btnNavegation}
-          >
-              <Text  style={styles.btnNavText}
-                onPress= {() => props.navigation.navigate('CadastroHome')}
-              >NOVO</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-              style={styles.btnNavegation}
-          >
-              <Text  style={styles.btnNavText}>INFO</Text>
-          </TouchableOpacity>
-
-        </View>
-
-      
         <View 
         style={styles.containerForm}>
 
@@ -40,26 +22,18 @@ export default function AdmPage(props) {
           <TouchableOpacity
             style={styles.button}
           >
-            <Text  style={styles.buttonText}>BLOCOS</Text>
+            <Text  style={styles.buttonText}
+                onPress= {() => props.navigation.navigate('CadastrarAdministrador')}
+            >CADASTRAR ADMINISTRADOR</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.button}
           >
-            <Text  style={styles.buttonText}>CONSULTAR VAGAS</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.button}
-          >
-            <Text  style={styles.buttonText}>AGENDAMENTOS</Text>
+            <Text  style={styles.buttonText}>CADASTRAR APARTAMENTO</Text>
           </TouchableOpacity>
         </View>
-        <Image
-          source={require('../../src/img/logotipo.png')}
-          style={styles.img}
-          resizeMode="contain"
-        />
+        
     </View>
     </View>
     </>
@@ -70,7 +44,7 @@ const styles = StyleSheet.create({
   
   container: {
     flex: 1,
-    backgroundColor: '#5D576B',
+    backgroundColor: '#FFF',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -82,13 +56,13 @@ const styles = StyleSheet.create({
     fontSize: "25px",
     fontWeight: '500',
     marginBottom: "50px",
-    marginTop: "50px",
-    color: "#FFF"
+    marginTop: "20px",
+    color: "black"
 },
 
   containerForm: {
     flex:1,
-    backgroundColor: '#FFF',
+    backgroundColor: '#5D576B',
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingStart: '5%',
@@ -96,10 +70,12 @@ const styles = StyleSheet.create({
   },
 
   img:{
-    marginLeft:'20%',
     width: '200px',
-    height:"200px"
-  },
+    height:"200px",
+    display: "flex",
+    justifyContent: "center",                               
+    alignItems: "center"                                                                                                                            
+  },                                                          
 
   row: {
     display: 'flex',
@@ -132,7 +108,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#a1a1a1",
+    backgroundColor: "#FFF",
     display: 'flex',
     justifyContent:'center',
     alignItems: 'center',
@@ -144,7 +120,7 @@ const styles = StyleSheet.create({
 
   buttonText: {
     padding: '2%',
-    
+    color: "#5D576B",
     fontWeight: 'bold',
     display: 'flex',
     justifyContent: 'center'

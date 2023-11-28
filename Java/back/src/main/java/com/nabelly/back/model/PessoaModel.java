@@ -3,6 +3,7 @@ package com.nabelly.back.model;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -30,7 +31,7 @@ public class PessoaModel {
     @Getter
     @Setter
     private String email;
-    @Getter
-    @Setter
+    
+    @DBRef
     private ApartamentoModel apartamento;
 }

@@ -34,7 +34,7 @@ public class ApartamentoService {
         return (ApartamentoModel) this.ApartamentoRepository.findByNumero(numero);
     }
 
-    public List<ApartamentoModel> findByAndar(int andar) {
-        return (List<ApartamentoModel>) this.ApartamentoRepository.findByAndar(andar);
+    public ApartamentoModel findByAndar(int andar) {
+        return (ApartamentoModel) this.ApartamentoRepository.findByAndar(andar);
     }
 }

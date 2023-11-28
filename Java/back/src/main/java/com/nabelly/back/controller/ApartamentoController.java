@@ -1,5 +1,5 @@
 package com.nabelly.back.controller;
 
-public class Apartamento {
+public class ApartamentoController {
     
 }

@@ -1,27 +1,62 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable'
+import api from '../../config/api';
 
-export default function loginUser(props) {
+export default function CadNovoAdm(props) {
+
+  async function cadastro(){
+    const res = await api.post("/admi",{})
+  }
 
   return (
     <View style={styles.container}>
       <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
-        <Text style={styles.message}>Bem-vindo(a), Morador</Text>
+        <Text style={styles.message}>Cadastrar novo Administrador</Text>
       </Animatable.View>
 
       <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Nome de Usuário</Text>
+      <Text style={styles.title}>Nome</Text>
         <TextInput
-          placeholder='Digite seu nome de usuário'
+          placeholder='Digite seu Nome'
           style={styles.input}
         />
 
-<Text style={styles.title}>Email</Text>
+        <Text style={styles.title}>Data de Nascimento</Text>
+              <TextInput
+                placeholder='Digite sua Data de Nascimento'
+                style={styles.input}
+              />
+
+        <Text style={styles.title}>CPF</Text>
+              <TextInput
+                placeholder='Digite seu CPF'
+                style={styles.input}
+              />
+
+        <Text style={styles.title}>Email</Text>
         <TextInput
           placeholder='Digite seu Email @condomínio.com'
           style={styles.input}
         />
+
+        <Text style={styles.title}>Número do Apartamento</Text>
+              <TextInput
+                placeholder='Digite número de seu apto.'
+                style={styles.input}
+              />
+
+        <Text style={styles.title}>Bloco do Apartamento</Text>
+              <TextInput
+                placeholder='Digite o andar de seu apto.'
+                style={styles.input}
+              />
+
+<Text style={styles.title}>Andar do Apartamento</Text>
+              <TextInput
+                placeholder='Digite o andar de seu apto'
+                style={styles.input}
+              />
 
         <Text style={styles.title}>Senha</Text>
         <TextInput
@@ -29,10 +64,8 @@ export default function loginUser(props) {
           style={styles.input}
         />
 
-        <TouchableOpacity style={styles.btnUser}
-        onPress= {() => props.navigation.navigate('UserPage')}
-        >
-          <Text style={styles.btnText}>Acessar</Text>
+        <TouchableOpacity style={styles.btnAdm}>
+          <Text style={styles.btnText}>Cadastrar</Text>
         </TouchableOpacity>
 
       </Animatable.View>
@@ -44,7 +77,7 @@ export default function loginUser(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#343B89',
+    backgroundColor: '#5D576B',
   },
 
   containerHeader: {
@@ -80,8 +113,8 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
 
-  btnUser: {
-    backgroundColor: '#5D576B',
+  btnAdm: {
+    backgroundColor: '#343B89',
     width: '100%',
     borderRadius: 4,
     paddingVertical: 8,
@@ -103,4 +136,11 @@ const styles = StyleSheet.create({
     color: '#a1a1a1',
     fontWeight: 'bold'
   },
+
+  btnUser:{
+    marginTop: 14,
+  }
+
+
+
 });
