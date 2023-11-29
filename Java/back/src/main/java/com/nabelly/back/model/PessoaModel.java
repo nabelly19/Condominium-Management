@@ -34,4 +34,16 @@ public class PessoaModel {
     
     @DBRef
     private ApartamentoModel apartamento;
+
+    public PessoaModel(String nome, String cpf, Date data_nasc,String email, ApartamentoModel apartamento){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.data_nasc = data_nasc;
+        this.email = email;
+        this.apartamento = apartamento;
+    }
+
+    public PessoaModel(){
+        
+    }
 }

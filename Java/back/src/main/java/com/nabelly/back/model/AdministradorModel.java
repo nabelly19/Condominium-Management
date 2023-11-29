@@ -3,16 +3,32 @@ package com.nabelly.back.model;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Data
 @Document("administrador")
-public class AdministradorModel extends PessoaModel {
+public class AdministradorModel {
+    @Id
+    @Getter
+    @Setter
+    private String id;
+    @Getter
+    @Setter
+    private String nome;
+    @Getter
+    @Setter
+    private String cpf;
+    @Getter
+    @Setter
+    private Date data_nasc;
+    @Getter
+    @Setter
+    private String email;
     @Getter
     @Setter
     private String login;
@@ -22,14 +38,23 @@ public class AdministradorModel extends PessoaModel {
     @Getter
     @Setter
     private String chave;
+
+    @DBRef
+    private ApartamentoModel apartamento;
  
-    public AdministradorModel(String id, String nome, String cpf,
-    Date data_nasc, String email, ApartamentoModel apartamento,
-    String _login, String _senha, String _chave)
+    public AdministradorModel(String id,String nome, String cpf,
+    Date data_nasc, String email, String _login, String _senha, String _chave)
     {
-         super(id, nome, cpf, data_nasc, email, apartamento);
+         this.id = id;
+         this.nome = nome;
+         this.cpf = cpf;
+         this.data_nasc = data_nasc;
+         this.email = email;
          this.login = _login;
          this.senha = _senha;
          this.chave = _chave;
+    }
+
+    public AdministradorModel(){
     }
 }

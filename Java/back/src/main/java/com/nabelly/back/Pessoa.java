@@ -12,7 +12,7 @@ public abstract class Pessoa {
 
 public Pessoa()
 {
-
+    
 }
 
 public Pessoa(String _nome, String _cpf,
