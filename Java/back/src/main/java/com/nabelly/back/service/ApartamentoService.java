@@ -18,8 +18,8 @@ public class ApartamentoService {
         return this.ApartamentoRepository.save(apartamentoModel);
     }
 
-    public void save(int bloco, int numero, int andar, int garagem) {
-        this.ApartamentoRepository.save(new ApartamentoModel(bloco, numero, andar, garagem));
+    public void save(String id, int bloco, int numero, int andar, int garagem) {
+        this.ApartamentoRepository.save(new ApartamentoModel(id,bloco, numero, andar, garagem));
     }
 
     public List<ApartamentoModel> findAll() {

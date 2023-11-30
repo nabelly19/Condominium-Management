@@ -12,6 +12,10 @@ import lombok.Setter;
 @Document("Apartamento")
 @AllArgsConstructor
 public class ApartamentoModel {
+    @Id
+    @Getter
+    @Setter
+    private String id;
     @Getter
     @Setter
     private int bloco;
@@ -24,4 +28,19 @@ public class ApartamentoModel {
     @Getter
     @Setter
     private int garagem;
+
+    public ApartamentoModel(String _id)
+    {
+        this.id = _id;
+    }
+
+    public ApartamentoModel(int _bloco, int _numero, int _andar, int _garagem)
+    {
+        this.bloco = _bloco;
+        this.numero = _numero;
+        this.andar = _andar;
+        this.garagem = _garagem;
+    }
 }
+
+

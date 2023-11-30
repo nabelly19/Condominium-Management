@@ -20,7 +20,7 @@ import com.nabelly.back.model.AdministradorModel;
 import com.nabelly.back.service.ApartamentoService;
 import com.nabelly.back.model.ApartamentoModel;
 
-
+import com.nabelly.back.DTO.ApartamentoAdmDTO;;
 
 
 @RestController // Define que a classe é um controlador REST
@@ -36,14 +36,25 @@ public class AdministradorController {
         @GetMapping("")
         public List<ApartamentoModel> FindAptos()
         {
-
+            return this.aptoService.findAll();
         }
 
-        //fazer um get e set de apartamento para depois acionar um usuário
+        //get e set de apartamento para depois acionar um usuário
 
         @PostMapping("")
         public void newAdm(@RequestBody AdministradorModel newAdmin) {
+            ApartamentoModel ap = new ApartamentoModel(newAdmin.getApartamento().getId());
+            var resp = this.aptoService.save(ap);
+            newAdmin.setApartamento(new ApartamentoModel(resp.getId()));
             aService.save(newAdmin);
+        }
+
+        @PostMapping("")
+        public void newAdm(@RequestBody ApartamentoAdmDTO newDTO) {
+            ApartamentoModel apmodel = new ApartamentoModel(newDTO.getApto().getId());
+            AdministradorModel admResp = aService.save(new AdministradorModel(newDTO.getAdm().getId()));
+            //apmodel.setId(new AdministradorModel(admResp.getId()));
+            aService.save(newDTO);
         }
 
 }

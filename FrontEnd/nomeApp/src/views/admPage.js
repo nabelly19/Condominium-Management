@@ -60,6 +60,12 @@ export default function AdmPage(props) {
           style={styles.img}
           resizeMode="contain"
         />
+
+<TouchableOpacity style={styles.btnUser}
+           onPress= {() => props.navigation.navigate('Welcome')}
+        >
+          <Text style={styles.userText}>Sair</Text>
+        </TouchableOpacity>
     </View>
     </View>
     </>
@@ -148,5 +154,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     display: 'flex',
     justifyContent: 'center'
+  },
+
+  userText:{
+    fontSize: 16,
+    alignSelf: 'center',
+    color: '#a1a1a1',
+    fontWeight: 'bold'
+  },
+
+  btnUser:{
+    marginTop: 14,
   }
 });

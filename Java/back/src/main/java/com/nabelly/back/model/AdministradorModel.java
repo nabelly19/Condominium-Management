@@ -57,4 +57,9 @@ public class AdministradorModel {
 
     public AdministradorModel(){
     }
+
+    public AdministradorModel(String _id){
+        this.id = _id;
+    }
+
 }

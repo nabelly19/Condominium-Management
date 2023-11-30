@@ -35,6 +35,12 @@ export default function loginUser(props) {
           <Text style={styles.btnText}>Acessar</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity style={styles.btnA}
+           onPress= {() => props.navigation.navigate('HomePage')}
+        >
+          <Text style={styles.userText}>Voltar</Text>
+        </TouchableOpacity>
+
       </Animatable.View>
 
     </View>
@@ -103,4 +109,9 @@ const styles = StyleSheet.create({
     color: '#a1a1a1',
     fontWeight: 'bold'
   },
+
+  btnA: {
+    fontSize: 14,
+    marginTop: '10%'
+  }
 });

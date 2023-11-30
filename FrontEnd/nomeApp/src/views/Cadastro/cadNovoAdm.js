@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import * as Animatable from 'react-native-animatable'
 import api from '../../config/api';
 
 export default function CadNovoAdm(props) {
-  const [confirmaSenha, setCS] = useState(confirma = "")
+  
+  const [confirmaSenha, setCS] = useState(
+    confirma = "")
+
   const [admin, setAdmin] = useState(
     nome = "",
     cpf = "",
@@ -22,9 +25,9 @@ export default function CadNovoAdm(props) {
     apartamento:admin.andar, login:admin.login, senha:admin.senha, chave:admin.chave})
   }
 
-  function verificaSenha(senha, confirmSenha)
+  function verificaSenha(senha, confirma)
   {
-    if (senha === confirmSenha) {
+    if (senha === confirma) {
       if(admin.nome != "" && admin.cpf != "" && data_nasc != "" && email != "" && apartamento != ""
       && login != "" && senha != "" && chave != "") {
         const post = cadastro()
@@ -129,7 +132,7 @@ export default function CadNovoAdm(props) {
         />
 
         <TouchableOpacity style={styles.btnAdm}
-          onPress={() => {verificaSenha(admin.senha, confirmSenha.confirma)}}
+          onPress={() => {verificaSenha(admin.senha, confirmaSenha.confirma)}}
         >
           <Text style={styles.btnText}>Cadastrar</Text>
         </TouchableOpacity>
